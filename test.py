@@ -9,6 +9,11 @@ from util.visualizer import Visualizer
 from util import html
 import torch
 
+
+
+
+
+
 opt = TestOptions().parse(save=False)
 opt.nThreads = 1   # test code only supports nThreads = 1
 opt.batchSize = 1  # test code only supports batchSize = 1
