@@ -62,10 +62,13 @@ class BaseOptions():
 
         self.initialized = True
 
-    def parse(self, save=True):
+    def parse(self, save=True, isJupyter=False):
         if not self.initialized:
             self.initialize()
-        self.opt = self.parser.parse_args()
+        if isJupyter:
+            self.opt = self.parser.parse_args(args=[])
+        else:
+            self.opt = self.parser.parse_args()
         self.opt.isTrain = self.isTrain   # train or test
 
         str_ids = self.opt.gpu_ids.split(',')
